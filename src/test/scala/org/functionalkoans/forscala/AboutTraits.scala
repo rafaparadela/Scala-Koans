@@ -102,8 +102,8 @@ class AboutTraits extends KoanSuite {
     val baker = new Baker
     baker.bake()
 
-    welder.logCache.size should be(__)
-    baker.logCache.size should be(__)
+    welder.logCache.size should be(1)
+    baker.logCache.size should be(1)
   }
 
   koan("Traits are instantiated before a classes instantiation") {
@@ -125,7 +125,8 @@ class AboutTraits extends KoanSuite {
     new C1
     sb = sb :+ "Created C1"
 
-    sb.mkString(";") should be(__)
+    sb.mkString(";") should be("Creating C1;In T1: x=0;In T1: x=1;In C1: y=0;In C1: y=2;Created C1")
+
   }
 
 
@@ -154,7 +155,8 @@ class AboutTraits extends KoanSuite {
     new C1
     sb = sb :+ "Created C1"
 
-    sb.mkString(";") should be(__)
+    sb.mkString(";") should be("Creating C1;In T1: x=0;In T1: x=1;In T2: z=0;In T2: z=1;In C1: y=0;In C1: y=2;Created C1")
+
   }
 
   koan("Instantiations are tracked and will not allow a duplicate instantiation. " + "Note T1 extends T2, and C1 also extends T2, but T2 is only instantiated once.") {
@@ -183,7 +185,7 @@ class AboutTraits extends KoanSuite {
     new C1
     sb = sb :+ "Created C1"
 
-    sb.mkString(";") should be(__)
+    sb.mkString(";") should be("Creating C1;In T2: z=0;In T2: z=1;In T1: x=0;In T1: x=1;In C1: y=0;In C1: y=2;Created C1")
   }
 
 
@@ -219,6 +221,6 @@ class AboutTraits extends KoanSuite {
     new C1
     sb = sb :+ "Created C1"
 
-    sb.mkString(";") should be(__)
+    sb.mkString(";") should be("Creating C1;In T1: x=0;In T1: x=1;In T2: z=0;In T2: z=2;In T3: w=0;In T3: w=3;In C1: y=0;In C1: y=4;Created C1")
   }
 }
