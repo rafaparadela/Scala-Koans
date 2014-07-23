@@ -22,7 +22,7 @@ class AboutTraits extends KoanSuite {
 
     val evt = Event("Moose Stampede")
     val myListener = new MyListener
-    myListener.listen(evt) should be (__)
+    myListener.listen(evt) should be ("An unfortunate moose stampede occurred")
   }
 
   koan("A class can only \'extend\' from one class or trait, any subsequent extension should use the keyword \'with\'") {
@@ -46,7 +46,7 @@ class AboutTraits extends KoanSuite {
 
     val evt = Event("Woodchuck Stampede")
     val myListener = new MyListener
-    myListener.listen(evt) should be (__)
+    myListener.listen(evt) should be ("An unfortunate woodchuck stampede occurred")
   }
 
   koan("Traits are polymorphic. Any type can be referred to by another type if related by extension") {
@@ -67,10 +67,10 @@ class AboutTraits extends KoanSuite {
 
     val myListener = new MyListener
 
-    myListener.isInstanceOf[MyListener] should be(__)
-    myListener.isInstanceOf[EventListener] should be(__)
-    myListener.isInstanceOf[Any] should be(__)
-    myListener.isInstanceOf[AnyRef] should be(__)
+    myListener.isInstanceOf[MyListener] should be(true)
+    myListener.isInstanceOf[EventListener] should be(true)
+    myListener.isInstanceOf[Any] should be(true)
+    myListener.isInstanceOf[AnyRef] should be(true)
   }
 
   koan("Traits can have concrete implementations that can be mixed into concrete classes with it's own state") {
@@ -157,8 +157,7 @@ class AboutTraits extends KoanSuite {
     sb.mkString(";") should be(__)
   }
 
-  koan("Instantiations are tracked and will not allow a duplicate instantiation. " +
-    "Note T1 extends T2, and C1 also extends T2, but T2 is only instantiated once.") {
+  koan("Instantiations are tracked and will not allow a duplicate instantiation. " + "Note T1 extends T2, and C1 also extends T2, but T2 is only instantiated once.") {
 
     var sb = List[String]()
 
@@ -188,8 +187,7 @@ class AboutTraits extends KoanSuite {
   }
 
 
-  koan("The diamond of death (http://en.wikipedia.org/wiki/Diamond_problem) is avoided since " +
-    "instantiations are tracked and will not allow multiple instantiations") {
+  koan("The diamond of death (http://en.wikipedia.org/wiki/Diamond_problem) is avoided since " + "instantiations are tracked and will not allow multiple instantiations") {
 
     var sb = List[String]()
 
