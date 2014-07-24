@@ -27,7 +27,7 @@ class AboutByNameParameter extends KoanSuite {
       14 + 15
     }
 
-    y should be (__)
+    y should be (29)
   }
 
 
