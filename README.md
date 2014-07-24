@@ -1,4 +1,5 @@
 Scala-Koans
 ===========
 
-"Scala Koans" Tests battery resolved
+"[Scala Koans](http://www.scalakoans.org/)" Tests battery resolved
+
